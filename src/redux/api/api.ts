@@ -12,7 +12,7 @@ export const baseApi = createApi({
     }),
     addTodo: builder.mutation({
       query: (data) => ({
-        url: "/tasks", // task is the api endpoint here
+        url: "/task", // task is the api endpoint here
         method: "POST",
         body: data,
       }),

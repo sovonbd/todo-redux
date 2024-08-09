@@ -32,7 +32,7 @@ const TodoCard = ({
           className="mr-3"
         />
         <p className="font-semibold flex-1">{title}</p>
-        <div className="flex-1">
+        <div className="flex-1 flex items-center gap-2">
           <div
             className={`size-2 rounded-full ${
               priority === "high" ? "bg-red-500" : ""
