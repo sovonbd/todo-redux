@@ -8,7 +8,9 @@ const TodoContainer = () => {
   const { todos } = useAppSelector((state) => state.todos);
 
   // From server
-  // const { data, isLoading, isError } = useGetTodosQuery(undefined);
+  // const { data, isLoading, isError } = useGetTodosQuery(undefined, {
+  //   refetchOnMountOrArgChange: true,
+  // });
 
   return (
     <div>
