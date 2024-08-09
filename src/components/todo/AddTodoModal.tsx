@@ -2,7 +2,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -14,11 +13,19 @@ import { FormEvent, useState } from "react";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { useAppDispatch } from "@/redux/hooks";
 import { addTodo } from "@/redux/features/todoSlice";
+import { useAddTodoMutation } from "@/redux/api/api";
 
 const AddTodoModal = () => {
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
+
+  //! For local state management
   const dispatch = useAppDispatch();
+
+
+  // For server
+  // [actualFunctionForPost, {data, isLoading, isError}]
+  const [addTodo, ] = useAddTodoMutation();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -28,6 +35,8 @@ const AddTodoModal = () => {
       title: task,
       description: description,
     };
+
+    //! For local state management
     dispatch(addTodo(taskDetails));
 
     console.log({ task, description });
@@ -71,6 +80,9 @@ const AddTodoModal = () => {
                 className="col-span-3"
               />
             </div>
+            {/* <div>
+              <label htmlFor=""></label>
+            </div> */}
           </div>
           <div className="flex justify-end">
             <DialogClose asChild>
